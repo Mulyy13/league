@@ -51,7 +51,7 @@ const Champion = () => {
         }
         // console.log(data[0].info);
         const chartData = {
-          labels: data[0].info,
+          labels: [data[0].info],
           datasets: [
             {
               label: "diagram",
@@ -66,8 +66,7 @@ const Champion = () => {
             },
           ],
         };
-
-        console.log(chartData);
+        // console.log(Object.values(chartData.labels));
         setChartData(chartData);
       },
     }
@@ -100,7 +99,10 @@ const Champion = () => {
             <span className="stat-span">STATYSTYKI</span>
             <div className="wrapper__statistics">
               <div className="statistics__spec">
-                <span className="statistics__spec-role">{champ.tags[0]}</span>
+                <span className="statistics__spec-role">
+                  {champ.tags[0]}
+                  {champ.tags[1] ? ` / ${champ.tags[1]}` : null}
+                </span>
                 <div className="spec-chart"></div>
               </div>
               <div className="statistics__basic">
@@ -113,7 +115,7 @@ const Champion = () => {
           </>
         );
       })}
-      {/* {chartData.labels && (
+      {chartData.labels && (
         <Line
           data={chartData}
           options={{
@@ -123,7 +125,7 @@ const Champion = () => {
             },
           }}
         />
-      )} */}
+      )}
     </div>
   );
 };
