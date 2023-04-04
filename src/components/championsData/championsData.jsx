@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import "./championsData.scss";
 import { Link } from "react-router-dom";
-import React, { useContext } from "react";
-import Navbar, { NavbarContext } from "../navbar/navbar";
+
+import Navbar from "../navbar/navbar";
+import { useSelector } from "react-redux";
 
 const ChampionsData = () => {
-  const handleFilter = useContext(NavbarContext);
-  console.log(handleFilter);
+  const globalInputValue = useSelector((state) => state.inputValue);
+  console.log(globalInputValue);
   const { isLoading, isError, data } = useQuery(["allChampions"], async () => {
     const response = await fetch(
       "http://ddragon.leagueoflegends.com/cdn/13.5.1/data/pl_PL/champion.json"
@@ -25,14 +26,14 @@ const ChampionsData = () => {
   }
 
   return (
-    <NavbarContext.Consumer>
+    <>
       <Navbar />
       <div className="champions__wrapper">
         {data
           .filter((champ) => {
-            return handleFilter.toLowerCase() === ""
+            return globalInputValue.toLowerCase() === ""
               ? champ
-              : champ.name.toLowerCase().includes(handleFilter);
+              : champ.name.toLowerCase().includes(globalInputValue);
           })
           .map((champ) => {
             return (
@@ -55,7 +56,7 @@ const ChampionsData = () => {
             );
           })}
       </div>
-    </NavbarContext.Consumer>
+    </>
   );
 };
 

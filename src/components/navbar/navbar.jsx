@@ -1,32 +1,20 @@
 import "./navbar.scss";
-import React, { useState } from "react";
-export const NavbarContext = React.createContext();
+import SearchInput from "../searchInput/searchInput";
 
 const Navbar = () => {
-  const [handleFilter, setHandleFilter] = useState("");
-
   return (
-    <NavbarContext.Provider value={handleFilter}>
+    <>
       <nav className="main">
         <li>Wszyscy</li>
-        <li>Wojownicy</li>
-        <li>Zabójcy</li>
-        <li>Magowie</li>
-        <li>Obrońcy</li>
-        <li>Strzelcy</li>
-        <li>Wspierający</li>
-        <label className="search">
-          <input
-            type="search"
-            value={handleFilter}
-            onChange={(e) => {
-              setHandleFilter(e.target.value);
-            }}
-            className="search__input"
-          />
-        </label>
+        <li value="Fighter">Wojownicy</li>
+        <li value="Assasin">Zabójcy</li>
+        <li value="Mage">Magowie</li>
+        <li value="Tank">Obrońcy</li>
+        <li value="Marksman">Strzelcy</li>
+        <li value="Support">Wspierający</li>
+        <SearchInput />
       </nav>
-    </NavbarContext.Provider>
+    </>
   );
 };
 

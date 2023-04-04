@@ -1,7 +1,6 @@
 // import ChampionsData from "../components/championsData/championsData";
 import "./layout.scss";
 import React from "react";
-import Navbar from "../components/navbar/navbar";
 function Layout({ children }) {
   return (
     <>

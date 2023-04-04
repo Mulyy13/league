@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import "./champion.scss";
+import ReactPlayer from "react-player";
 import {
   Chart as ChartJs,
   ArcElement,
@@ -9,13 +10,13 @@ import {
   LinearScale,
   PointElement,
   LineElement,
+  RadialLinearScale,
   Title,
   Tooltip,
   Legend,
   Filler,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
-// import ImagesData from "../../../public/ImagesData";
+import { PolarArea } from "react-chartjs-2";
 
 ChartJs.register(
   ArcElement,
@@ -23,6 +24,7 @@ ChartJs.register(
   LinearScale,
   PointElement,
   LineElement,
+  RadialLinearScale,
   Title,
   Tooltip,
   Legend,
@@ -30,7 +32,10 @@ ChartJs.register(
 );
 
 const Champion = () => {
+  const [skillInfo, setSkillInfo] = useState("");
   const [chartData, setChartData] = useState({});
+  const [championSkill, setChampionSkill] = useState("");
+
   const { id } = useParams();
   const { isLoading, isError, data } = useQuery(
     ["Champion", id],
@@ -44,24 +49,26 @@ const Champion = () => {
     },
     {
       onSuccess: (data) => {
-        console.log(data);
-        console.log(Array.isArray(data));
         if (data.length === 0) {
           return null;
         }
-        // console.log(data[0].info);
         const chartData = {
-          labels: [data[0].info],
+          labels: [],
           datasets: [
             {
-              label: "diagram",
               data: Object.values(data[0].info),
-              fill: true,
+
               borderColor: [
-                "rgb(244,3,23)",
-                "rgb(255, 205, 86)",
-                "rgb(255, 205, 86)",
-                "rgb(255, 205, 86)",
+                "rgb(255,255,255)",
+                "rgb(255,255,255)",
+                "rgb(255,255,255)",
+                "rgb(255,255,255)",
+              ],
+              backgroundColor: [
+                "rgba( 255,0, 0)",
+                "rgba( 0,0, 255)",
+                "RGBA(201,56,235,0.4)",
+                "rgba( 55,55, 55)",
               ],
             },
           ],
@@ -96,6 +103,7 @@ const Champion = () => {
                 <div className="wrapper__champion-subtitle">{champ.name}</div>
               </div>
             </div>
+            <div className="wrapper__about">{champ.lore}</div>
             <span className="stat-span">STATYSTYKI</span>
             <div className="wrapper__statistics">
               <div className="statistics__spec">
@@ -106,26 +114,163 @@ const Champion = () => {
                 <div className="spec-chart"></div>
               </div>
               <div className="statistics__basic">
-                <span className="statistics__basic-attack">attack</span>
-                <span className="statistics__basic-defense">defense</span>
-                <span className="statistics__basic-magic">magic </span>
-                <span className="statistics__basic-difficulty">difficulty</span>
+                <div>
+                  <span className="statistics__basic-attack">
+                    Trudność : {champ.info.difficulty}
+                  </span>
+                  <span className="statistics__basic-defense">
+                    Moc : {champ.info.magic}
+                  </span>
+                </div>
+                {chartData.labels && (
+                  <div className="chart-container">
+                    <PolarArea
+                      data={chartData}
+                      options={{
+                        responsive: true,
+                        scales: {
+                          r: {
+                            display: false,
+                          },
+                        },
+                        plugins: {
+                          Legend: { display: false },
+                          title: { display: true, text: "" },
+                        },
+                      }}
+                    />
+                  </div>
+                )}
+                <div>
+                  <span className="statistics__basic-magic">
+                    Atak : {champ.info.attack}
+                  </span>
+                  <span className="statistics__basic-difficulty">
+                    Defensywa : {champ.info.defense}
+                  </span>
+                </div>
               </div>
+            </div>
+            <div className="wrapper__skills">
+              <span>umiejętności</span>
+              <ul className="skills__panel">
+                <li
+                  className="skills__panel-passive"
+                  onClick={() => {
+                    setSkillInfo(champ.passive.description);
+                    setChampionSkill("P");
+                  }}
+                >
+                  <img
+                    src={`${process.env.PUBLIC_URL}/ImagesData/passive/${champ.id}.png`}
+                    alt="pass"
+                  />
+                </li>
+                <li
+                  className="skills__panel-Q"
+                  onClick={() => {
+                    setSkillInfo(champ.spells[0].description);
+                    setChampionSkill("Q");
+                  }}
+                >
+                  <img
+                    src={`${process.env.PUBLIC_URL}/ImagesData/spell/${champ.spells[0].id}.png`}
+                    alt="Q"
+                  />
+                </li>
+                <li
+                  className="skills__panel-W"
+                  onClick={() => {
+                    setSkillInfo(champ.spells[1].description);
+                    setChampionSkill("W");
+                  }}
+                >
+                  <img
+                    src={`${process.env.PUBLIC_URL}/ImagesData/spell/${champ.spells[1].id}.png`}
+                    alt="W"
+                  />
+                </li>
+                <li
+                  className="skills__panel-E"
+                  onClick={() => {
+                    setSkillInfo(champ.spells[2].description);
+                    setChampionSkill("E");
+                  }}
+                >
+                  <img
+                    src={`${process.env.PUBLIC_URL}/ImagesData/spell/${champ.spells[2].id}.png`}
+                    alt="E"
+                  />
+                </li>
+                <li
+                  className="skills__panel-R"
+                  onClick={() => {
+                    setSkillInfo(champ.spells[3].description);
+                    setChampionSkill("R");
+                  }}
+                >
+                  <img
+                    src={`${process.env.PUBLIC_URL}/ImagesData/spell/${champ.spells[3].id}.png`}
+                    alt="R"
+                  />
+                </li>
+              </ul>
+              <div className="skills__display">
+                {championSkill ? (
+                  <div>
+                    <ReactPlayer
+                      url={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${champ.key}/ability_0${champ.key}_${championSkill}1.mp4`}
+                      fallback={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${champ.key}/ability_0${champ.key}_${championSkill}1.webm`}
+                      playing
+                      muted
+                      loop
+                      width={530}
+                      height={360}
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: "nodownload",
+                          },
+                          sources: [
+                            {
+                              src: `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${champ.key}/ability_0${champ.key}_${championSkill}1.mp4`,
+                              type: "video/mp4",
+                            },
+                            {
+                              src: `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${champ.key}/ability_0${champ.key}_${championSkill}1.webm`,
+                              type: "video/webm",
+                            },
+                          ],
+                        },
+                      }}
+                    />
+                    <div className="skills__display-description">
+                      {skillInfo}
+                    </div>
+                  </div>
+                ) : (
+                  <span> wybierz umiejętność</span>
+                )}
+              </div>
+            </div>
+            <span className="tips-span">Porady</span>
+            <div className="wrapper__tips">
+              <ul className="wrapper__tips-ally">
+                <div className="tips-ally__title">Granie</div>
+                {champ.allytips.map((tip, index) => (
+                  <li key={index}> {tip} </li>
+                ))}
+              </ul>
+              <ul className="wrapper__tips-enemy">
+                <div className="tips-enemy__title">Kontrowanie</div>
+                {champ.enemytips.map((tip, index) => (
+                  <li key={index}> {tip} </li>
+                ))}
+              </ul>
             </div>
           </>
         );
       })}
-      {chartData.labels && (
-        <Line
-          data={chartData}
-          options={{
-            plugins: {
-              Legend: { position: "top" },
-              title: { display: true, text: "" },
-            },
-          }}
-        />
-      )}
     </div>
   );
 };
