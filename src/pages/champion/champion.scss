@@ -129,6 +129,11 @@
       li {
         cursor: pointer;
         height: 64px;
+
+        &:hover {
+          box-shadow: 1px 0px 20px 5px rgb(255, 255, 255);
+          transition: 0.5s;
+        }
       }
       img {
         border-radius: 5px;
@@ -212,6 +217,41 @@
         border-right: 1.8px solid red;
         background-color: rgba(255, 0, 0, 0.3);
         text-align: left;
+      }
+    }
+  }
+  &__skins {
+    margin: 100px auto;
+    width: 80%;
+    .skins__panel {
+      display: flex;
+      flex-direction: column-reverse;
+      height: 730px;
+      overflow: hidden;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      .panel__container {
+        display: flex;
+        background-color: rgba($color: #0000001e, $alpha: 0.5);
+        backdrop-filter: blur(3px);
+        margin: 0;
+        height: 150px;
+        align-items: center;
+        ul {
+          display: flex;
+          height: 80px;
+
+          li {
+            color: white;
+            list-style: none;
+            margin: auto 10px;
+            img {
+              width: 100px;
+              height: 80px;
+            }
+          }
+        }
       }
     }
   }

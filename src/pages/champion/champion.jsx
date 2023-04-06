@@ -35,6 +35,7 @@ const Champion = () => {
   const [skillInfo, setSkillInfo] = useState("");
   const [chartData, setChartData] = useState({});
   const [championSkill, setChampionSkill] = useState("");
+  const [skinPreview, setSkinPreview] = useState("");
 
   const { id } = useParams();
   const { isLoading, isError, data } = useQuery(
@@ -267,6 +268,42 @@ const Champion = () => {
                   <li key={index}> {tip} </li>
                 ))}
               </ul>
+            </div>
+            <div className="wrapper__skins">
+              <div
+                className="skins__panel"
+                style={{
+                  backgroundImage: `url(${skinPreview})`,
+                  transition: "0.6s",
+                }}
+              >
+                <div
+                  className="panel__container"
+                  style={{
+                    justifyContent:
+                      champ.skins.length >= 9 ? "baseline" : "center",
+                  }}
+                >
+                  <ul>
+                    {champ.skins.map((skin, index) => (
+                      <li
+                        key={index}
+                        onClick={() => {
+                          setSkinPreview(
+                            `${process.env.PUBLIC_URL}/ImagesData/splash/${champ.id}_${skin.num}.jpg`
+                          );
+                          console.log(skinPreview);
+                        }}
+                      >
+                        <img
+                          src={`${process.env.PUBLIC_URL}/ImagesData/tiles/${champ.id}_${skin.num}.jpg`}
+                          alt="e"
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </>
         );
