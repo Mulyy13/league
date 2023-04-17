@@ -28,7 +28,7 @@ const ChampionsData = () => {
   return (
     <>
       <Navbar />
-      <div className="champions__wrapper">
+      <div className="champions-list">
         {data
           .filter((champ) => {
             return globalInputValue.toLowerCase() === ""
@@ -42,7 +42,7 @@ const ChampionsData = () => {
                 to={`/champion/${champ.id}`}
                 className="product"
               >
-                <div className="champions__item" key={champ.id}>
+                <div className="item" key={champ.id}>
                   <div
                     className="item__image"
                     style={{

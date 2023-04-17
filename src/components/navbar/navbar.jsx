@@ -4,7 +4,7 @@ import SearchInput from "../searchInput/searchInput";
 const Navbar = () => {
   return (
     <>
-      <nav className="main">
+      <nav className="navbar">
         <li>Wszyscy</li>
         <li value="Fighter">Wojownicy</li>
         <li value="Assasin">Zabójcy</li>
