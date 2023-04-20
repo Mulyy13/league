@@ -1,13 +1,10 @@
 import Slider from "react-slick";
+
 import "./skillsSlider.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect } from "react";
 
 const SkillsSlider = ({ data }) => {
-  useEffect(() => {
-    console.log(data[0]);
-  });
   const settings = {
     dots: true,
     dotsClass: "slick-dots",
@@ -16,34 +13,34 @@ const SkillsSlider = ({ data }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
 
-    customPaging: (i) => (
-      <div>
-        {data.map((item, index) => (
-          <div key={index} className="thumbnail">
-            <img
-              src={`${process.env.PUBLIC_URL}/ImagesData/splash/${item.id}_${item.skins[i].num}.jpg`}
-              alt={item.name}
-            />
-          </div>
-        ))}
-      </div>
-    ),
+    customPaging: (index) => {
+      const skin = data.skins[index];
+      return (
+        <div className="thumbnail" key={skin.id}>
+          <img
+            src={`${process.env.PUBLIC_URL}/ImagesData/splash/${data.id}_${skin.num}.jpg`}
+            alt={skin.name}
+          />
+        </div>
+      );
+    },
   };
+
+  console.log(data);
 
   return (
     <Slider className="slider" {...settings}>
-      {/* {data.map((item, index) => (
-        <div className="icons">
+      {data.skins.map((item) => (
+        <div className="icons" key={item.id}>
           <img
             className="icons-img"
-            src={`${process.env.PUBLIC_URL}/ImagesData/splash/${item.id}_${item.skins[index].num}.jpg`}
-            // src={`${process.env.PUBLIC_URL}/ImagesData/splash/Akali_3.jpg`}
-            alt={"ses"}
+            src={`${process.env.PUBLIC_URL}/ImagesData/splash/${data.id}_${item.num}.jpg`}
+            alt={item.name}
           />
         </div>
-      ))} */}
+      ))}
 
-      <div className="icons">
+      {/* <div className="icons">
         <img
           className="icons-img"
           src={`${process.env.PUBLIC_URL}/ImagesData/splash/Annie_0.jpg`}
@@ -63,7 +60,7 @@ const SkillsSlider = ({ data }) => {
           src={`${process.env.PUBLIC_URL}/ImagesData/splash/Annie_2.jpg`}
           alt={"ses"}
         />
-      </div>
+      </div> */}
     </Slider>
   );
 };

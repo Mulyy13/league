@@ -104,6 +104,8 @@ const Champion = () => {
     return <div>Error: {isError.message}</div>;
   }
 
+  if (!champ) return null;
+
   return (
     <div className="champion">
       <div className="profile" key={champ.key}>
@@ -326,7 +328,7 @@ const Champion = () => {
                 </ul>
               </div>
             </div> */}
-            <SkillsSlider data={data} />
+            <SkillsSlider data={champ} />
           </div>
           <div className="tips">
             <ul className="tips__ally">
