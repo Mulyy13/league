@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import "./champion.scss";
@@ -17,6 +17,7 @@ import {
   Filler,
 } from "chart.js";
 import { PolarArea } from "react-chartjs-2";
+import SkillsSlider from "../../components/skillSlider/skillsSlider";
 
 ChartJs.register(
   ArcElement,
@@ -36,13 +37,13 @@ const Champion = () => {
   const [chartData, setChartData] = useState({});
   const [championSkill, setChampionSkill] = useState("");
   const [skillName, setSkillName] = useState("");
-  const [skinPreview, setSkinPreview] = useState(
-    ""
-    // `${process.env.PUBLIC_URL}/ImagesData/splash/${champ.id}_${skin.num}.jpg`
-  );
-  const [middleSkinVertical, setMiddleSkinVertical] = useState(null);
-  const [skinsCount, setSkinsCount] = useState(null);
-  const skinWidth = 110;
+  // const [skinPreview, setSkinPreview] = useState(
+  //   ""
+  //   // `${process.env.PUBLIC_URL}/ImagesData/splash/${champ.id}_${skin.num}.jpg`
+  // );
+  // const [middleSkinVertical, setMiddleSkinVertical] = useState(null);
+  // const [skinsCount, setSkinsCount] = useState(null);
+  // const skinWidth = 110;
   const { id } = useParams();
   const { isLoading, isError, data } = useQuery(
     ["Champion", id],
@@ -51,7 +52,7 @@ const Champion = () => {
         `http://ddragon.leagueoflegends.com/cdn/13.5.1/data/pl_PL/champion/${id}.json`
       );
       const data = await response.json();
-      console.log(Object.values(data.data));
+      // console.log(Object.values(data.data));
       return Object.values(data.data);
     },
     {
@@ -80,7 +81,6 @@ const Champion = () => {
             },
           ],
         };
-        // console.log(Object.values(chartData.labels));
         setChartData(chartData);
       },
     }
@@ -88,13 +88,13 @@ const Champion = () => {
 
   const champ = data?.[0];
 
-  useEffect(() => {
-    if (champ) {
-      setSkinPreview(
-        `${process.env.PUBLIC_URL}/ImagesData/splash/${champ.id}_${champ.skins[0].num}.jpg`
-      );
-    }
-  }, [champ]);
+  // useEffect(() => {
+  //   if (champ) {
+  //     setSkinPreview(
+  //       `${process.env.PUBLIC_URL}/ImagesData/splash/${champ.id}_${champ.skins[0].num}.jpg`
+  //     );
+  //   }
+  // }, [champ]);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -279,7 +279,7 @@ const Champion = () => {
             </div>
           </div>
           <div className="skins">
-            <div
+            {/* <div
               className="skins__panel"
               style={{
                 backgroundImage: `url(${skinPreview})`,
@@ -325,7 +325,8 @@ const Champion = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </div> */}
+            <SkillsSlider data={data} />
           </div>
           <div className="tips">
             <ul className="tips__ally">

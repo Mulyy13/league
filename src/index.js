@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import { Provider } from "react-redux";
 import { store } from ".//components/searchInput/searchInput.jsx";
-import App from "./pages/App";
+import App from "./App";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();

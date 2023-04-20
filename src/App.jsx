@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ChampionsData from "../components/championsData/championsData";
-import Layout from "../layout/layout";
-import Champion from "./champion/champion";
-import Footer from "../components/footer/footer";
+import ChampionsData from "./components/championsData/championsData";
+import Layout from "./layout/layout";
+import Champion from "./pages/champion/champion";
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
