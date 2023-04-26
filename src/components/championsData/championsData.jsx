@@ -1,7 +1,7 @@
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import "./championsData.scss";
 import { Link } from "react-router-dom";
-
 import Navbar from "../navbar/navbar";
 import { useSelector } from "react-redux";
 

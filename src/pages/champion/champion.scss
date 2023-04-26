@@ -1,3 +1,6 @@
+$title-size: 30px;
+$lora: "Lora", serif;
+$dark-gold: #7e633b;
 .champion {
   width: 100%;
   display: flex;
@@ -59,14 +62,15 @@
   .about {
     border-right: 13px groove goldenrod;
     border-left: 13px groove goldenrod;
-    &__opis {
+    &__title {
+      font-size: 30px;
       margin: 0 auto;
-      border: 10px double rgb(80, 79, 79);
+      border: 10px double $dark-gold;
       // border: 10px ridge rgb(80, 79, 79);
       // border: 10px groove rgb(80, 79, 79);
       margin-top: 25px;
       color: white;
-      font-size: 20px;
+
       font-family: "Lora", serif;
       width: 80%;
       border-bottom: none;
@@ -76,8 +80,8 @@
     }
     &__champion-history {
       margin: 0 auto;
-      border-left: 10px double rgb(80, 79, 79);
-      border-right: 10px double rgb(80, 79, 79);
+      border-left: 10px double $dark-gold;
+      border-right: 10px double $dark-gold;
       // border-left: 10px groove rgb(80, 79, 79);
       // border-right: 10px groove rgb(80, 79, 79);
       color: white;
@@ -95,212 +99,24 @@
     .wrapper-smaller {
       width: 80%;
       margin: 0 auto;
-      border: 10px double rgb(80, 79, 79);
+      border: 10px double $dark-gold;
       // border: 10px inset rgb(80, 79, 79);
       padding: 30px;
       margin-bottom: 50px;
       border-top: none;
-      .statistics {
-        font-family: "Source Sans Pro", sans-serif;
-        height: 100%;
-        width: 100%;
-        color: white;
-        font-size: 24px;
-        &__specification {
-          width: 100%;
-          margin: 0;
-          .role {
-            display: block;
-            text-align: center;
-            width: 100%;
-            margin-top: 44px;
-            font-size: 40px;
-            font-weight: 200;
-          }
-        }
-        &__basic {
-          display: flex;
-          justify-content: center;
-          padding-top: 86px;
-          div {
-            display: flex;
-            flex-direction: column;
 
-            gap: 60%;
-          }
-          span {
-            margin-left: 24px;
-            font-size: 34px;
-          }
-        }
-      }
-      .skills {
-        display: flex;
-        flex-direction: column;
-        margin-top: 50px;
-        color: white;
-        list-style: none;
-        text-align: center;
-        font-family: "Courgette", cursive;
-
-        span {
-          font-size: 40px;
-          text-transform: uppercase;
-        }
-
-        &__panel {
-          margin-top: 50px;
-          display: flex;
-          justify-content: space-around;
-          border: 1.8px solid rgb(72, 0, 0);
-          border-bottom: none;
-          padding-top: 20px;
-          list-style: none;
-
-          li {
-            cursor: pointer;
-            height: 64px;
-
-            &:hover {
-              box-shadow: 1px 0px 20px 5px rgb(255, 255, 255);
-              transition: 0.5s;
-            }
-          }
-          img {
-            border-radius: 5px;
-          }
-        }
-        &__display {
-          background-color: rgba(72, 0, 0, 0.5);
-          max-width: 1436.8px;
-          display: flex;
-          height: 360px;
-          width: 100%;
-          border: 1.8px solid rgb(72, 0, 0);
-          // background-position: right;
-          // background-repeat: no-repeat;
-          background-size: 70%;
-          border-right: none;
-          border-left: none;
-
-          div {
-            transition: 1s;
-            display: flex;
-          }
-          span {
-            margin: auto auto;
-          }
-
-          .description-wrapper {
-            max-width: 50%;
-            display: flex;
-            flex-direction: column;
-            text-align: start;
-            padding-left: 20px;
-            padding-top: 20px;
-
-            :nth-child(2) {
-              font-size: 24px;
-              color: rgb(206, 138, 138);
-            }
-            div {
-              padding: 7px 0;
-            }
-          }
-        }
-      }
-      .skins {
-        margin: 100px auto;
-        width: 100%;
-        .skins__panel {
-          display: flex;
-          flex-direction: column-reverse;
-          height: 730px;
-          overflow: hidden;
-          background-position: center;
-          background-size: cover;
-          background-repeat: no-repeat;
-          .panel__container {
-            display: flex;
-            background-color: rgba($color: #0000001e, $alpha: 0.5);
-            backdrop-filter: blur(3px);
-            margin: 0;
-            height: 150px;
-            align-items: center;
-            ul {
-              position: relative;
-              display: flex;
-              height: 80px;
-
-              li {
-                color: white;
-                list-style: none;
-                margin: auto 10px;
-                img {
-                  width: 110px;
-                  height: 80px;
-                }
-              }
-            }
-          }
-        }
-      }
-      .tips {
-        display: flex;
-        justify-content: space-between;
-        font-family: "Lora", serif;
-        gap: 10px;
-
-        div {
-          font-size: 30px;
-          text-align: center;
-          border: 1.8px solid gray;
-          border-bottom: none;
-          color: white;
-          padding: 20px 0;
-          text-transform: uppercase;
-        }
-        &__ally {
-          color: white;
-          max-width: 50%;
-          list-style: none;
-          margin-bottom: 10px;
-          padding-left: 0px;
-          .tips-ally__title {
-            color: white;
-            border-color: greenyellow;
-            background-color: rgb(83, 131, 11);
-          }
-
-          li {
-            padding: 20px 20px 20px 20px;
-            font-size: 18px;
-            border-left: 1.8px solid greenyellow;
-            border-right: 1.8px solid greenyellow;
-            background-color: rgba(111, 175, 14, 0.3);
-          }
-        }
-        &__enemy {
-          max-width: 50%;
-          margin-bottom: 10px;
-          padding-left: 0px;
-          color: white;
-          list-style: none;
-          .tips-enemy__title {
-            color: white;
-            border-color: red;
-            background-color: rgb(117, 13, 13);
-          }
-          li {
-            padding: 20px 20px 20px 20px;
-            font-size: 18px;
-            border-left: 1.8px solid red;
-            border-right: 1.8px solid red;
-            background-color: rgba(255, 0, 0, 0.3);
-            text-align: left;
-          }
-        }
-      }
+      // .skins {
+      //   margin: 0px auto;
+      //   margin-bottom: 0;
+      //   width: 100%;
+      //   h4 {
+      //     color: white;
+      //     text-align: center;
+      //     font-size: $title-size;
+      //     font-family: $lora;
+      //     margin-top: 50px;
+      //   }
+      // }
     }
   }
 }
@@ -328,7 +144,3 @@
   text-align: center;
   text-transform: uppercase;
 }
-// .chart-container {
-//   width: 400px;
-//   height: 400px;
-// }

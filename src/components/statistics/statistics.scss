@@ -1,0 +1,44 @@
+$lora: "Lora", serif;
+
+.statistics {
+  display: flex;
+  font-family: "Source Sans Pro", sans-serif;
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-size: 24px;
+  &__specification {
+    width: 100%;
+    margin: 0;
+    border-right: 1px solid#7e633b;
+    .role-title {
+      font-family: $lora;
+      text-align: center;
+      width: 100%;
+      // margin-top: 44px;
+      font-size: 30px;
+    }
+    .role-img {
+      width: 100%;
+      text-align: center;
+      padding-top: 50px;
+    }
+  }
+  &__basic {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-left: 40px;
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 60%;
+    }
+    span {
+      margin-left: 24px;
+      font-size: 24px;
+      font-weight: 700;
+      width: 100%;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import "./navbar.scss";
 import SearchInput from "../searchInput/searchInput";
-
+import React from "react";
 const Navbar = () => {
   return (
     <>
