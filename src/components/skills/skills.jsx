@@ -11,7 +11,6 @@ const Skills = ({ data }) => {
   return (
     <>
       <div className="skills">
-        {data.name}
         <h2>Umiejętności</h2>
         <ul className="skills__panel">
           <li

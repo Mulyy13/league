@@ -6,8 +6,9 @@ import Navbar from "../navbar/navbar";
 import { useSelector } from "react-redux";
 
 const ChampionsData = () => {
-  const globalInputValue = useSelector((state) => state.inputValue);
-  console.log(globalInputValue);
+  const champType = useSelector((state) => state.filter.type);
+  const globalInputValue = useSelector((state) => state.search.inputValue);
+
   const { isLoading, isError, data } = useQuery(["allChampions"], async () => {
     const response = await fetch(
       "http://ddragon.leagueoflegends.com/cdn/13.5.1/data/pl_PL/champion.json"
@@ -16,7 +17,10 @@ const ChampionsData = () => {
     const data = await response.json();
     return Object.values(data.data);
   });
-
+  const filteredData =
+    champType === "all"
+      ? data
+      : data.filter((item) => item.tags[0] === champType);
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -24,12 +28,12 @@ const ChampionsData = () => {
   if (isError) {
     return <div>Error: {isError.message}</div>;
   }
-
+  console.log(globalInputValue);
   return (
     <>
       <Navbar />
       <div className="champions-list">
-        {data
+        {filteredData
           .filter((champ) => {
             return globalInputValue.toLowerCase() === ""
               ? champ

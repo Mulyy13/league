@@ -5,11 +5,36 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: white;
+  background-color: black;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  border: 1.5px solid #7e633b;
+  .type-list {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
 
-  li {
-    list-style: none;
+    li {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 2%;
+      margin: 20px 0px;
+      font-size: 16px;
+      text-transform: uppercase;
+      list-style: none;
+      font-weight: 600;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.search-input {
+  background-color: black;
+  color: white;
+  &:focus {
+    border: 1px solid red;
   }
 }

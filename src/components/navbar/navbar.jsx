@@ -1,18 +1,29 @@
 import "./navbar.scss";
-import SearchInput from "../searchInput/searchInput";
 import React from "react";
-const Navbar = () => {
+import { useDispatch } from "react-redux";
+import {
+  all,
+  fighter,
+  mage,
+  assasin,
+  marksman,
+  support,
+} from "../../features/filterChampion";
+import { HandleInputValue } from "../../features/searchChampion";
+export const Navbar = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <nav className="navbar">
-        <li>Wszyscy</li>
-        <li value="Fighter">Wojownicy</li>
-        <li value="Assasin">Zabójcy</li>
-        <li value="Mage">Magowie</li>
-        <li value="Tank">Obrońcy</li>
-        <li value="Marksman">Strzelcy</li>
-        <li value="Support">Wspierający</li>
-        <SearchInput />
+        <ul className="type-list">
+          <li onClick={() => dispatch(all())}>Wszyscy</li>
+          <li onClick={() => dispatch(fighter())}>Wojownicy</li>
+          <li onClick={() => dispatch(mage())}>Magowie</li>
+          <li onClick={() => dispatch(assasin())}>Assasyni</li>
+          <li onClick={() => dispatch(marksman())}>Strzelcy</li>
+          <li onClick={() => dispatch(support())}>Wsparcie</li>
+        </ul>
+        <HandleInputValue />
       </nav>
     </>
   );
