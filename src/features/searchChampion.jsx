@@ -15,8 +15,8 @@ const SearchChampion = createSlice({
 });
 
 export function HandleInputValue() {
-  const dispatch = useDispatch();
   const [handleFilter, setHandleFilter] = useState("");
+  const dispatch = useDispatch();
   const globalInputValue = useSelector((state) => state.search.inputValue);
   const handleInputChange = (e) => {
     const newValue = e.target.value;
@@ -24,14 +24,13 @@ export function HandleInputValue() {
     dispatch(SearchChampion.actions.search(newValue));
   };
   return (
-    <div>
+    <div className="input-container">
       <input
-        className="search-input"
-        type="search"
-        placeholder="Nazwa bohatera"
+        required="required"
         value={handleFilter || globalInputValue}
         onChange={handleInputChange}
       />
+      <span>nazwa bohatera</span>
     </div>
   );
 }
