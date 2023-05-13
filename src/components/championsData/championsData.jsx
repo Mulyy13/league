@@ -32,6 +32,8 @@ const ChampionsData = () => {
   return (
     <>
       <Navbar />
+      <div className="nav-back"></div>
+      <div className="title">Bohaterowie</div>
       <div className="champions-list">
         {filteredData
           .filter((champ) => {

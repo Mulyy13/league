@@ -1,5 +1,24 @@
-h1 {
-  color: white;
+$lora: "Lora", serif;
+$dark-gold: #7e633b;
+.nav-back {
+  height: 100px;
+  // background-color: rgba(26, 25, 34);
+}
+
+.title {
+  width: 100%;
+  max-width: 1280px;
+  height: 15vh;
+  color: $dark-gold;
+  margin: 0 auto;
+  line-height: 15vh;
+  text-align: center;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-family: $lora;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  backdrop-filter: blur(10px);
+  font-weight: 700;
 }
 
 .champions-list {
@@ -10,6 +29,8 @@ h1 {
   max-width: 1280px;
   margin: 0 auto;
   align-items: flex-start;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  backdrop-filter: blur(10px);
   .product {
     margin: 17px;
     text-decoration: none;
@@ -110,6 +131,53 @@ h1 {
               transition: 0.7s;
               text-shadow: 0px 0px 6px rgb(254, 254, 254);
               // background-color: wheat;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+h1 {
+  color: white;
+}
+@media (min-width: 375px) and (max-width: 480px) {
+  .nav-back {
+    height: 50px;
+    background-color: black;
+  }
+  .title {
+    font-size: 26px;
+  }
+
+  .champions-list {
+    justify-content: center;
+    .product {
+      margin: 2px;
+      width: 100px;
+      height: 100px;
+
+      font-size: 4px;
+      margin-top: 10px;
+
+      .item {
+        &__image {
+          width: 100px;
+          height: 100px;
+          div {
+            font-size: 2.3em;
+            padding: 3px 0px;
+          }
+          &:hover {
+            transform: scale(1.23, 1.14);
+            transition: 0.3s;
+            box-shadow: 1px 0px 70px 75px rgb(0, 0, 0);
+            div {
+              font-size: 12px;
+              line-height: 20px;
+              height: 20px;
+              transition: 0.3s;
+              text-shadow: 0px 0px 6px rgb(254, 254, 254);
             }
           }
         }

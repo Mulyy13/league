@@ -15,6 +15,7 @@ export const Navbar = () => {
   return (
     <>
       <nav className="navbar">
+        <div className="logo"></div>
         <ul className="type-list">
           <li onClick={() => dispatch(all())}>Wszyscy</li>
           <li onClick={() => dispatch(fighter())}>Wojownicy</li>
