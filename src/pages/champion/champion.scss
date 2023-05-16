@@ -1,6 +1,10 @@
 $title-size: 30px;
 $lora: "Lora", serif;
 $dark-gold: #7e633b;
+html {
+  min-width: 100%;
+  width: 100%;
+}
 .champion {
   width: 100%;
   display: flex;
@@ -30,7 +34,7 @@ $dark-gold: #7e633b;
       height: 716px;
       width: 100%;
       background-size: cover;
-      background-position: center;
+      background-position: 00% center;
       box-shadow: inset 0px -40px 100px 100px rgba(0, 0, 0, 1);
     }
   }
@@ -41,7 +45,7 @@ $dark-gold: #7e633b;
     color: white;
     font-size: 40px;
     border-bottom: 0px;
-    // width: 100%;
+
     position: relative;
     height: 50px;
     text-align: center;
@@ -67,8 +71,7 @@ $dark-gold: #7e633b;
       font-size: 30px;
       margin: 0 auto;
       border: 10px double $dark-gold;
-      // border: 10px ridge rgb(80, 79, 79);
-      // border: 10px groove rgb(80, 79, 79);
+
       margin-top: 25px;
       color: white;
 
@@ -83,8 +86,7 @@ $dark-gold: #7e633b;
       margin: 0 auto;
       border-left: 10px double $dark-gold;
       border-right: 10px double $dark-gold;
-      // border-left: 10px groove rgb(80, 79, 79);
-      // border-right: 10px groove rgb(80, 79, 79);
+
       color: white;
       font-size: 20px;
       font-family: "Lora", serif;
@@ -101,23 +103,10 @@ $dark-gold: #7e633b;
       width: 80%;
       margin: 0 auto;
       border: 10px double $dark-gold;
-      // border: 10px inset rgb(80, 79, 79);
+
       padding: 30px;
       margin-bottom: 50px;
       border-top: none;
-
-      // .skins {
-      //   margin: 0px auto;
-      //   margin-bottom: 0;
-      //   width: 100%;
-      //   h4 {
-      //     color: white;
-      //     text-align: center;
-      //     font-size: $title-size;
-      //     font-family: $lora;
-      //     margin-top: 50px;
-      //   }
-      // }
     }
   }
 }
@@ -144,4 +133,219 @@ $dark-gold: #7e633b;
   font-size: 40px;
   text-align: center;
   text-transform: uppercase;
+}
+@media (max-width: 1360px) {
+  .champion {
+    width: 100%;
+    .profile {
+      height: 25em;
+      &__title {
+        font-size: 64px;
+      }
+      &__avatar {
+        margin-top: 5px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: 50% 15%;
+        height: 100%;
+        // box-shadow: inset 0px -20px 72px 64px rgb(0, 0, 0);
+        box-shadow: inset -30px 10px 12px 14px rgba(0, 0, 0, 0.8),
+          inset 30px -50px 12px 14px rgba(0, 0, 0, 0.8);
+      }
+    }
+    .border-subtitle {
+      border: 12px groove goldenrod;
+      border-bottom: none;
+      span {
+        font-size: 36px;
+        font-size: $lora;
+      }
+    }
+    .about {
+      border-right: 12px groove goldenrod;
+      border-left: 12px groove goldenrod;
+      &__title {
+        font-size: 2em;
+        border: 8px double $dark-gold;
+        border-bottom: none;
+      }
+      &__champion-history {
+        font-size: 1.1em;
+        border-left: 8px double $dark-gold;
+        border-right: 8px double $dark-gold;
+      }
+    }
+    .wrapper-bigger {
+      border: 12px groove goldenrod;
+      border-top: none;
+      .wrapper-smaller {
+        border: 8px double $dark-gold;
+        border-top: none;
+      }
+    }
+  }
+}
+@media (max-width: 1180px) {
+  .champion {
+    width: 100%;
+    .profile {
+      height: 20em;
+      &__title {
+        font-size: 44px;
+      }
+      &__avatar {
+        margin-top: 5px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: 50% 15%;
+        height: 100%;
+        // box-shadow: inset 0px -20px 72px 64px rgb(0, 0, 0);
+        box-shadow: inset -30px 10px 12px 14px rgba(0, 0, 0, 0.8),
+          inset 30px -50px 12px 14px rgba(0, 0, 0, 0.8);
+      }
+    }
+    .border-subtitle {
+      border: 7px groove goldenrod;
+      border-bottom: none;
+      span {
+        font-size: 26px;
+        font-size: $lora;
+      }
+    }
+    .about {
+      border-right: 7px groove goldenrod;
+      border-left: 7px groove goldenrod;
+      &__title {
+        font-size: 1.5em;
+        border: 5px double $dark-gold;
+        border-bottom: none;
+      }
+      &__champion-history {
+        font-size: 1em;
+        border-left: 5px double $dark-gold;
+        border-right: 5px double $dark-gold;
+      }
+    }
+    .wrapper-bigger {
+      border: 7px groove goldenrod;
+      border-top: none;
+      .wrapper-smaller {
+        border: 5px double $dark-gold;
+        border-top: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .champion {
+    width: 100%;
+    .profile {
+      height: 20em;
+      &__title {
+        font-size: 44px;
+      }
+      &__avatar {
+        margin-top: 5px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: 50% 15%;
+        height: 100%;
+        // box-shadow: inset 0px -20px 72px 64px rgb(0, 0, 0);
+        box-shadow: inset -30px 10px 12px 14px rgba(0, 0, 0, 0.8),
+          inset 30px -50px 12px 14px rgba(0, 0, 0, 0.8);
+      }
+    }
+    .border-subtitle {
+      border: 7px groove goldenrod;
+      border-bottom: none;
+      span {
+        font-size: 26px;
+        font-size: $lora;
+      }
+    }
+    .about {
+      border-right: 7px groove goldenrod;
+      border-left: 7px groove goldenrod;
+      &__title {
+        font-size: 1.5em;
+        border: 5px double $dark-gold;
+        border-bottom: none;
+      }
+      &__champion-history {
+        font-size: 1em;
+        border-left: 5px double $dark-gold;
+        border-right: 5px double $dark-gold;
+      }
+    }
+    .wrapper-bigger {
+      border: 7px groove goldenrod;
+      border-top: none;
+      .wrapper-smaller {
+        border: 5px double $dark-gold;
+        border-top: none;
+      }
+    }
+  }
+  //   .stat-span {
+  //     font-size: 1220px;
+  //   }
+  //   .tips-span {
+  //   }
+  // }
+}
+@media (max-width: 720px) {
+}
+@media (max-width: 480px) {
+  .champion {
+    width: 100%;
+    .profile {
+      height: 20em;
+      &__title {
+        padding-bottom: 20px;
+        font-size: 34px;
+      }
+      &__avatar {
+        margin-top: 0px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: 50% 15%;
+        height: 100%;
+        // box-shadow: inset 0px -20px 72px 64px rgb(0, 0, 0);
+        box-shadow: inset -30px 10px 12px 14px rgba(0, 0, 0, 0.8),
+          inset 30px -100px 12px 14px rgba(0, 0, 0, 0.8);
+      }
+    }
+    .border-subtitle {
+      border: 7px groove goldenrod;
+      border-bottom: none;
+      span {
+        font-size: 16px;
+        font-size: $lora;
+      }
+    }
+    .about {
+      border-right: 7px groove goldenrod;
+      border-left: 7px groove goldenrod;
+      &__title {
+        font-size: 1.2em;
+        border: none;
+      }
+      &__champion-history {
+        font-size: 0.8em;
+        border-left: none;
+        border-right: none;
+      }
+    }
+    .wrapper-bigger {
+      border: 7px groove goldenrod;
+      border-top: none;
+      .wrapper-smaller {
+        border: none;
+        border-top: none;
+      }
+    }
+  }
+}
+@media (max-width: 220px) {
 }

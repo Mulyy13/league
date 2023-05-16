@@ -30,6 +30,7 @@ const Champion = () => {
   if (!champ) return null;
 
   return (
+    <div className="champion__wrapper">
     <div className="champion">
       <div className="profile" key={champ.key}>
         <div
@@ -56,7 +57,7 @@ const Champion = () => {
           <Tips data={champ} />
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

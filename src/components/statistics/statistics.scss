@@ -15,7 +15,6 @@ $lora: "Lora", serif;
       font-family: $lora;
       text-align: center;
       width: 100%;
-      // margin-top: 44px;
       font-size: 30px;
     }
     .role-img {
@@ -29,6 +28,7 @@ $lora: "Lora", serif;
     justify-content: center;
     padding-top: 20px;
     padding-left: 40px;
+
     div {
       display: flex;
       flex-direction: column;
@@ -39,6 +39,149 @@ $lora: "Lora", serif;
       font-size: 24px;
       font-weight: 700;
       width: 100%;
+    }
+  }
+}
+@media (max-width: 1080px) {
+  .statistics {
+    display: flex;
+    font-family: "Source Sans Pro", sans-serif;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 24px;
+    &__specification {
+      width: 100%;
+      margin: 0;
+      padding-right: 20px;
+      // border-right: 1px solid#7e633b;
+      .role-title {
+        font-family: $lora;
+        text-align: center;
+        width: 100%;
+        // margin-top: 44px;
+        font-size: 30px;
+      }
+      .role-img {
+        width: 100%;
+        text-align: center;
+        padding-top: 50px;
+      }
+    }
+    &__basic {
+      padding-top: 0px;
+      padding-left: 0px;
+      width: 80%;
+      .chart-container {
+        width: 100%;
+        height: 100%;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 60%;
+      }
+      span {
+        margin-left: 14px;
+        font-size: 14px;
+        font-weight: 700;
+        width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 900px) {
+  .statistics {
+    display: flex;
+    flex-direction: column;
+    font-family: "Source Sans Pro", sans-serif;
+    height: 100%;
+    width: 80%;
+    color: white;
+    font-size: 24px;
+    margin: 0 auto;
+    &__specification {
+      width: 100%;
+      margin: 0;
+      padding-right: 20px;
+      border-right: none;
+      .role-title {
+        font-family: $lora;
+        text-align: center;
+        width: 100%;
+        font-size: 30px;
+      }
+      .role-img {
+        width: 100%;
+        text-align: center;
+        padding-top: 50px;
+      }
+    }
+    &__basic {
+      padding-top: 0px;
+      padding-left: 0px;
+      width: 100%;
+
+      .chart-container {
+        width: 100%;
+        height: 100%;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 60%;
+      }
+      span {
+        margin-left: 0.8em;
+        font-size: 0.8em;
+        font-weight: 700;
+        width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 720px) {
+  .statistics {
+    display: flex;
+    font-family: "Source Sans Pro", sans-serif;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 24px;
+    &__specification {
+      width: 100%;
+      margin: 0;
+      padding-right: 20px;
+      // border-right: 1px solid#7e633b;
+      .role-title {
+        font-family: $lora;
+        text-align: center;
+        width: 100%;
+        // margin-top: 44px;
+        font-size: 30px;
+      }
+      .role-img {
+        width: 100%;
+        text-align: center;
+        padding-top: 50px;
+      }
+    }
+    &__basic {
+      padding-top: 0px;
+      padding-left: 0px;
+      width: 100%;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 60%;
+      }
+      span {
+        margin-left: 24px;
+        font-size: 24px;
+        font-weight: 700;
+        width: 100%;
+      }
     }
   }
 }
