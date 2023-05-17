@@ -1,6 +1,6 @@
 $title-size: 30px;
 $lora: "Lora", serif;
-
+@import url("https://fonts.googleapis.com/css2?family=Angkor&family=Lobster+Two:ital@1&display=swap");
 .skills {
   display: flex;
   flex-direction: column;
@@ -15,7 +15,8 @@ $lora: "Lora", serif;
   h2 {
     font-size: $title-size;
     font-family: $lora;
-    margin-top: 50px;
+    text-transform: uppercase;
+    margin-top: 30px;
     height: 100px;
     text-align: center;
     line-height: 100px;
@@ -28,39 +29,49 @@ $lora: "Lora", serif;
     justify-content: space-around;
     border: 1.8px solid rgb(72, 0, 0);
     border-bottom: none;
-    padding-top: 20px;
+    padding: 20px 20px 20px 20px;
     list-style: none;
-
+    .active {
+      box-shadow: 1px 0px 20px 5px rgb(255, 255, 255);
+      transition: 0.5s;
+    }
     li {
+      height: 100%;
+      width: 100%;
+    }
+    img {
+      width: 40%;
+      height: 40%;
+      border-radius: 5px;
       cursor: pointer;
-      height: 64px;
-
       &:hover {
         box-shadow: 1px 0px 20px 5px rgb(255, 255, 255);
         transition: 0.5s;
       }
-    }
-    img {
-      border-radius: 5px;
     }
   }
   &__display {
     background-color: rgba(72, 0, 0, 0.5);
     max-width: 1436.8px;
     display: flex;
-    height: 360px;
+    height: 100%;
     width: 100%;
     border: 1.8px solid rgb(72, 0, 0);
-    // background-position: right;
-    // background-repeat: no-repeat;
+
     background-size: 70%;
     border-right: none;
     border-left: none;
 
     div {
+      // background-color: wheat;
       transition: 1s;
       display: flex;
+      .container {
+        height: 100%;
+        width: 100%;
+      }
     }
+
     span {
       margin: auto auto;
     }
@@ -72,18 +83,116 @@ $lora: "Lora", serif;
       text-align: start;
       padding-left: 20px;
       padding-top: 20px;
-
+      :nth-child(1) {
+        font-size: 32px;
+        margin: 0 5%;
+        // font-family: "Lobster Two", cursive;
+        font-family: "Angkor", cursive;
+        font-weight: 500;
+      }
       :nth-child(2) {
         font-size: 24px;
         color: rgb(206, 138, 138);
       }
+      :nth-last-child(1) {
+        margin: 0 5%;
+      }
       div {
-        padding: 7px 0;
+        padding: 12px 0;
       }
     }
   }
 }
-.chart-container {
-  width: 420px;
-  height: 400px;
+@media (max-width: 1080px) {
+  .skills {
+    &__display {
+      .description-wrapper {
+        max-width: 50%;
+        :nth-child(1) {
+          font-size: 1em;
+          margin: 0 5%;
+        }
+        :nth-child(2) {
+          font-size: 1em;
+        }
+        :nth-last-child(1) {
+          font-size: 0.8em;
+        }
+        div {
+          padding: 8px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .skills {
+    &__display {
+      .description-wrapper {
+        max-width: 50%;
+        :nth-child(1) {
+          font-size: 0.8em;
+          margin: 0 5%;
+        }
+        :nth-child(2) {
+          font-size: 0.8em;
+        }
+        :nth-last-child(1) {
+          font-size: 0.6em;
+        }
+        div {
+          padding: 4.2px 0;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 720px) {
+  .skills {
+    &__display {
+      .description-wrapper {
+        min-height: 200px;
+        padding-top: 0.5em;
+        :nth-child(1) {
+          font-size: 0.6em;
+          margin: 0 5%;
+        }
+        :nth-child(2) {
+          font-size: 0.6em;
+        }
+        :nth-last-child(1) {
+          font-size: 0.45em;
+        }
+        div {
+          padding: 3.2px 0;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+  .skills {
+    &__display {
+      .description-wrapper {
+        min-height: none;
+        padding-top: 0.4em;
+        :nth-child(1) {
+          font-size: 0.5em;
+          margin: 0 5%;
+        }
+        :nth-child(2) {
+          font-size: 0.5em;
+        }
+        :nth-last-child(1) {
+          font-size: 0.38em;
+        }
+        div {
+          padding: 3px 0;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 375px) {
 }

@@ -242,6 +242,13 @@ $light-gold: #da9f47;
             height: 1.5em;
             line-height: 1.5em;
           }
+          &:hover {
+            div {
+              font-size: 18px;
+              line-height: 30px;
+              height: 30px;
+            }
+          }
         }
       }
     }
@@ -273,6 +280,13 @@ $light-gold: #da9f47;
             font-weight: 400;
             height: 1.5em;
             line-height: 1.5em;
+          }
+          &:hover {
+            div {
+              font-size: 22px;
+              line-height: 35px;
+              height: 35px;
+            }
           }
         }
       }

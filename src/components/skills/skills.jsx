@@ -7,68 +7,79 @@ const Skills = ({ data }) => {
   const [skillInfo, setSkillInfo] = useState("");
   const [championSkill, setChampionSkill] = useState("");
   const [skillName, setSkillName] = useState("");
-
+  const [active, setAcctive] = useState(null);
+  let cleanSkillInfo = skillInfo.replace(/<[^>]+>/g, "");
   return (
     <>
-      <div className="skills">
+      <div
+        className="skills"
+        // onClick={() => {
+        //   setAcctive(null);
+        // }}
+      >
         <h2>Umiejętności</h2>
         <ul className="skills__panel">
-          <li
-            onClick={() => {
-              setSkillInfo(data.passive.description);
-              setChampionSkill("P");
-              setSkillName(data.passive.name);
-            }}
-          >
+          <li>
             <img
+              className={active === 0 ? "active" : null}
+              onClick={() => {
+                setSkillInfo(data.passive.description);
+                setChampionSkill("P");
+                setSkillName(data.passive.name);
+                setAcctive(0);
+              }}
               src={`${process.env.PUBLIC_URL}/ImagesData/passive/${data.id}.png`}
               alt="pass"
             />
           </li>
-          <li
-            onClick={() => {
-              setSkillInfo(data.spells[0].description);
-              setChampionSkill("Q");
-              setSkillName(data.spells[0].name);
-            }}
-          >
+          <li>
             <img
+              className={active === 1 ? "active" : null}
+              onClick={() => {
+                setSkillInfo(data.spells[0].description);
+                setChampionSkill("Q");
+                setSkillName(data.passive.name);
+                setAcctive(1);
+              }}
               src={`${process.env.PUBLIC_URL}/ImagesData/spell/${data.spells[0].id}.png`}
               alt="Q"
             />
           </li>
-          <li
-            onClick={() => {
-              setSkillInfo(data.spells[1].description);
-              setChampionSkill("W");
-              setSkillName(data.spells[1].name);
-            }}
-          >
+          <li>
             <img
+              className={active === 2 ? "active" : null}
+              onClick={() => {
+                setSkillInfo(data.spells[1].description);
+                setChampionSkill("W");
+                setSkillName(data.spells[1].name);
+                setAcctive(2);
+              }}
               src={`${process.env.PUBLIC_URL}/ImagesData/spell/${data.spells[1].id}.png`}
               alt="W"
             />
           </li>
-          <li
-            onClick={() => {
-              setSkillInfo(data.spells[2].description);
-              setChampionSkill("E");
-              setSkillName(data.spells[2].name);
-            }}
-          >
+          <li>
             <img
+              className={active === 3 ? "active" : null}
+              onClick={() => {
+                setSkillInfo(data.spells[2].description);
+                setChampionSkill("E");
+                setSkillName(data.spells[2].name);
+                setAcctive(3);
+              }}
               src={`${process.env.PUBLIC_URL}/ImagesData/spell/${data.spells[2].id}.png`}
               alt="E"
             />
           </li>
-          <li
-            onClick={() => {
-              setSkillInfo(data.spells[3].description);
-              setChampionSkill("R");
-              setSkillName(data.spells[3].name);
-            }}
-          >
+          <li>
             <img
+              className={active === 4 ? "active" : null}
+              onClick={() => {
+                setSkillInfo(data.spells[3].description);
+                setChampionSkill("R");
+                setSkillName(data.spells[3].name);
+                setAcctive(4);
+              }}
               src={`${process.env.PUBLIC_URL}/ImagesData/spell/${data.spells[3].id}.png`}
               alt="R"
             />
@@ -77,37 +88,39 @@ const Skills = ({ data }) => {
         <div className="skills__display">
           {championSkill ? (
             <div>
-              <ReactPlayer
-                url={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${data.key}/ability_0${data.key}_${championSkill}1.mp4`}
-                fallback={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${data.key}/ability_0${data.key}_${championSkill}1.webm`}
-                playing
-                muted
-                loop
-                width={530}
-                height={360}
-                config={{
-                  file: {
-                    attributes: {
-                      controlsList: "nodownload",
+              <div className="container">
+                <ReactPlayer
+                  url={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${data.key}/ability_0${data.key}_${championSkill}1.mp4`}
+                  fallback={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${data.key}/ability_0${data.key}_${championSkill}1.webm`}
+                  playing
+                  muted
+                  loop
+                  width="100%"
+                  height="100%"
+                  config={{
+                    file: {
+                      attributes: {
+                        controlsList: "nodownload",
+                      },
+                      sources: [
+                        {
+                          src: `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${data.key}/ability_0${data.key}_${championSkill}1.mp4`,
+                          type: "video/mp4",
+                        },
+                        {
+                          src: `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${data.key}/ability_0${data.key}_${championSkill}1.webm`,
+                          type: "video/webm",
+                        },
+                      ],
                     },
-                    sources: [
-                      {
-                        src: `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${data.key}/ability_0${data.key}_${championSkill}1.mp4`,
-                        type: "video/mp4",
-                      },
-                      {
-                        src: `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${data.key}/ability_0${data.key}_${championSkill}1.webm`,
-                        type: "video/webm",
-                      },
-                    ],
-                  },
-                }}
-              />
+                  }}
+                />
+              </div>
               <div className="description-wrapper">
                 <div className="description-wrapper__key">{championSkill}</div>
                 <div className="description-wrapper__name">{skillName}</div>
                 <div className="description-wrapper__description">
-                  {skillInfo}
+                  {cleanSkillInfo}
                 </div>
               </div>
             </div>

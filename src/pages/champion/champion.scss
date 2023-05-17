@@ -294,8 +294,8 @@ html {
   //   }
   // }
 }
-@media (max-width: 720px) {
-}
+// @media (max-width: 720px) {
+// }
 @media (max-width: 480px) {
   .champion {
     width: 100%;
@@ -328,6 +328,7 @@ html {
       border-right: 7px groove goldenrod;
       border-left: 7px groove goldenrod;
       &__title {
+        margin-top: 0;
         font-size: 1.2em;
         border: none;
       }
