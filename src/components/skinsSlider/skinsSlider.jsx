@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import "./skillsSlider.scss";
+import "./skinsSlider.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useRef } from "react";
@@ -14,16 +14,15 @@ const SkinsSlider = ({ data }) => {
 
   const settings = {
     dots: true,
-    // dotsClass: "slick-dots",
+    dotsClass: "slick-dots",
     infinite: false,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 4,
     slidesToScroll: 1,
     fade: true,
     arrows: false,
     slickGoTo: true,
-    // swipeToSlide: true,
-    // focusOnSelect: true,
+    centerMode: false,
 
     customPaging: (index) => {
       const skin = data.skins[index];
@@ -43,14 +42,12 @@ const SkinsSlider = ({ data }) => {
   };
 
   return (
-    <div className="skins">
+    <div className="skins-wrapper">
       <h4>Skórki</h4>
-
       <Slider className="slider" {...settings} ref={sliderRef}>
         {data.skins.map((item) => (
-          <div className="icon" key={item.id}>
+          <div className="slider__icon" key={item.id}>
             <img
-              className="icon-img"
               src={`${process.env.PUBLIC_URL}/ImagesData/splash/${data.id}_${item.num}.jpg`}
               alt={item.name}
             />

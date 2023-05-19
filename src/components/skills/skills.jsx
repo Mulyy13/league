@@ -11,12 +11,7 @@ const Skills = ({ data }) => {
   let cleanSkillInfo = skillInfo.replace(/<[^>]+>/g, "");
   return (
     <>
-      <div
-        className="skills"
-        // onClick={() => {
-        //   setAcctive(null);
-        // }}
-      >
+      <div className="skills">
         <h2>Umiejętności</h2>
         <ul className="skills__panel">
           <li>

@@ -1,6 +1,8 @@
 $title-size: 30px;
 $lora: "Lora", serif;
 $dark-gold: #7e633b;
+$goldenrod: #daa520ff;
+$golden-brown: #866513ff;
 html {
   min-width: 100%;
   width: 100%;
@@ -110,30 +112,30 @@ html {
     }
   }
 }
-.stat-span {
-  width: 100%;
-  color: white;
-  text-align: center;
-  font-family: "Courgette", cursive;
-  margin-top: 34px;
-  display: block;
-  font-size: 40px;
-  margin-bottom: 36px;
-}
-.tips-span {
-  width: 100%;
-  color: white;
-  border-top: 1.8px solid rgb(72, 0, 0);
-  border-right: 1.8px solid rgb(72, 0, 0);
-  border-left: 1.8px solid rgb(72, 0, 0);
-  font-family: "Courgette", cursive;
-  margin-top: 34px;
-  display: block;
-  padding: 20px 0;
-  font-size: 40px;
-  text-align: center;
-  text-transform: uppercase;
-}
+// .stat-span {
+//   width: 100%;
+//   color: white;
+//   text-align: center;
+//   font-family: "Courgette", cursive;
+//   margin-top: 34px;
+//   display: block;
+//   font-size: 40px;
+//   margin-bottom: 36px;
+// }
+// .tips-span {
+//   width: 100%;
+//   color: white;
+//   border-top: 1.8px solid rgb(72, 0, 0);
+//   border-right: 1.8px solid rgb(72, 0, 0);
+//   border-left: 1.8px solid rgb(72, 0, 0);
+//   font-family: "Courgette", cursive;
+//   margin-top: 34px;
+//   display: block;
+//   padding: 20px 0;
+//   font-size: 40px;
+//   text-align: center;
+//   text-transform: uppercase;
+// }
 @media (max-width: 1360px) {
   .champion {
     width: 100%;
@@ -294,8 +296,7 @@ html {
   //   }
   // }
 }
-// @media (max-width: 720px) {
-// }
+
 @media (max-width: 480px) {
   .champion {
     width: 100%;
@@ -331,9 +332,11 @@ html {
         margin-top: 0;
         font-size: 1.2em;
         border: none;
+        margin: 0;
+        background-color: $golden-brown;
       }
       &__champion-history {
-        font-size: 0.8em;
+        font-size: 0.7em;
         border-left: none;
         border-right: none;
       }
@@ -347,6 +350,4 @@ html {
       }
     }
   }
-}
-@media (max-width: 220px) {
 }

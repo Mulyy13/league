@@ -16,7 +16,7 @@ $lora: "Lora", serif;
     font-size: $title-size;
     font-family: $lora;
     text-transform: uppercase;
-    margin-top: 30px;
+    margin-top: 32px;
     height: 100px;
     text-align: center;
     line-height: 100px;
@@ -68,11 +68,12 @@ $lora: "Lora", serif;
       display: flex;
       .container {
         height: 100%;
-        width: 100%;
+        width: 50%;
       }
     }
 
     span {
+      padding: 20px 0px;
       margin: auto auto;
     }
 
@@ -106,6 +107,10 @@ $lora: "Lora", serif;
 @media (max-width: 1080px) {
   .skills {
     &__display {
+      span {
+        padding: 20px 0px;
+        font-size: 1em;
+      }
       .description-wrapper {
         max-width: 50%;
         :nth-child(1) {
@@ -128,6 +133,9 @@ $lora: "Lora", serif;
 
 @media (max-width: 900px) {
   .skills {
+    h2 {
+      font-size: 1.5em;
+    }
     &__display {
       .description-wrapper {
         max-width: 50%;
@@ -151,8 +159,17 @@ $lora: "Lora", serif;
 @media (max-width: 720px) {
   .skills {
     &__display {
+      div {
+        .container {
+          height: 100%;
+          width: 50%;
+        }
+      }
+      span {
+        font-size: 0.8em;
+      }
       .description-wrapper {
-        min-height: 200px;
+        width: 50%;
         padding-top: 0.5em;
         :nth-child(1) {
           font-size: 0.6em;
@@ -173,6 +190,9 @@ $lora: "Lora", serif;
 }
 @media (max-width: 480px) {
   .skills {
+    h2 {
+      font-size: 19.2px;
+    }
     &__display {
       .description-wrapper {
         min-height: none;

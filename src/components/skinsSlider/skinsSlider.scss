@@ -1,0 +1,44 @@
+$title-size: 30px;
+$lora: "Lora", serif;
+.skins-wrapper {
+  h4 {
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    font-family: $lora;
+  }
+  .slick-list {
+    height: 300px;
+  }
+  .slick-dots {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    position: static;
+    li {
+      height: 50px;
+      width: 100px;
+
+      .thumbnail {
+        width: 100%;
+        height: 100%;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+}
+
+@media (max-width: 900px) {
+}
+@media (max-width: 720px) {
+}
+@media (max-width: 480px) {
+}
+@media (max-width: 375px) {
+}
