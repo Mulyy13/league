@@ -1,14 +1,24 @@
-$title-size: 30px;
-$lora: "Lora", serif;
+@import "../../theme/variables.scss";
+
+.sliderr {
+  height: 100%;
+}
 .skins-wrapper {
   h4 {
-    color: white;
+    height: 100px;
     text-align: center;
-    font-size: 32px;
-    font-family: $lora;
+    font-size: $title-size;
+    font-family: $titlesFont;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px double $dark-gold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: $goldenrod;
   }
   .slick-list {
-    height: 300px;
+    height: 100%;
   }
   .slick-dots {
     display: flex;
@@ -16,8 +26,8 @@ $lora: "Lora", serif;
     flex-wrap: nowrap;
     position: static;
     li {
-      height: 50px;
-      width: 100px;
+      height: 5%;
+      width: 10%;
 
       .thumbnail {
         width: 100%;
@@ -35,10 +45,25 @@ $lora: "Lora", serif;
 }
 
 @media (max-width: 900px) {
+  .skins-wrapper {
+    h4 {
+      font-size: 24px;
+    }
+  }
 }
 @media (max-width: 720px) {
+  .skins-wrapper {
+    h4 {
+      font-size: 24px;
+    }
+  }
 }
 @media (max-width: 480px) {
+  .skins-wrapper {
+    h4 {
+      font-size: 19.2px;
+    }
+  }
 }
 @media (max-width: 375px) {
 }

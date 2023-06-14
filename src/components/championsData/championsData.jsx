@@ -11,7 +11,7 @@ const ChampionsData = () => {
 
   const { isLoading, isError, data } = useQuery(["allChampions"], async () => {
     const response = await fetch(
-      "http://ddragon.leagueoflegends.com/cdn/13.5.1/data/pl_PL/champion.json"
+      "https://ddragon.leagueoflegends.com/cdn/13.5.1/data/pl_PL/champion.json"
     );
     console.log("response :: ", response);
     const data = await response.json();

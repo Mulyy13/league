@@ -1,6 +1,4 @@
-$title-size: 30px;
-$lora: "Lora", serif;
-@import url("https://fonts.googleapis.com/css2?family=Angkor&family=Lobster+Two:ital@1&display=swap");
+@import "../../theme/variables.scss";
 .skills {
   display: flex;
   flex-direction: column;
@@ -14,13 +12,18 @@ $lora: "Lora", serif;
   }
   h2 {
     font-size: $title-size;
-    font-family: $lora;
+    font-family: $titlesFont;
+    letter-spacing: 2px;
+    color: black;
     text-transform: uppercase;
     margin-top: 32px;
     height: 100px;
     text-align: center;
     line-height: 100px;
     margin-bottom: 0px;
+    background-color: $goldenrod;
+    border: 10px double $dark-gold;
+    padding: 0;
   }
 
   &__panel {
@@ -40,8 +43,8 @@ $lora: "Lora", serif;
       width: 100%;
     }
     img {
-      width: 40%;
-      height: 40%;
+      width: 30%;
+      height: 30%;
       border-radius: 5px;
       cursor: pointer;
       &:hover {
@@ -73,6 +76,7 @@ $lora: "Lora", serif;
     }
 
     span {
+      font-family: $lora;
       padding: 20px 0px;
       margin: auto auto;
     }
@@ -87,7 +91,6 @@ $lora: "Lora", serif;
       :nth-child(1) {
         font-size: 32px;
         margin: 0 5%;
-        // font-family: "Lobster Two", cursive;
         font-family: "Angkor", cursive;
         font-weight: 500;
       }
@@ -158,6 +161,12 @@ $lora: "Lora", serif;
 }
 @media (max-width: 720px) {
   .skills {
+    h2 {
+      margin-top: 0;
+    }
+    &__panel {
+      margin-top: 15px;
+    }
     &__display {
       div {
         .container {
@@ -167,6 +176,7 @@ $lora: "Lora", serif;
       }
       span {
         font-size: 0.8em;
+        font-family: $sourceSansFont;
       }
       .description-wrapper {
         width: 50%;
@@ -192,6 +202,10 @@ $lora: "Lora", serif;
   .skills {
     h2 {
       font-size: 19.2px;
+      margin: 0;
+    }
+    &__panel {
+      margin-top: 10px;
     }
     &__display {
       .description-wrapper {
@@ -203,9 +217,11 @@ $lora: "Lora", serif;
         }
         :nth-child(2) {
           font-size: 0.5em;
+          font-family: $sourceSansFont;
         }
         :nth-last-child(1) {
           font-size: 0.38em;
+          font-family: $sourceSansFont;
         }
         div {
           padding: 3px 0;

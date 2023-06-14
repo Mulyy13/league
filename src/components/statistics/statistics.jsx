@@ -72,11 +72,9 @@ const Statistics = ({ data }) => {
       </div>
       <div className="statistics__basic">
         <div>
-          <span style={{ color: "grey" }}>
-            Trudność : {data.info.difficulty}
-          </span>
+          <span style={{ color: "grey" }}>Trudność {data.info.difficulty}</span>
           <span style={{ color: "rgb(160, 69, 160)" }}>
-            Moc : {data.info.magic}
+            Moc {data.info.magic}
           </span>
         </div>
         {chartData.labels && (
@@ -99,9 +97,9 @@ const Statistics = ({ data }) => {
           </div>
         )}
         <div>
-          <span style={{ color: "red" }}>Atak : {data.info.attack}</span>
+          <span style={{ color: "red" }}>Atak {data.info.attack}</span>
           <span style={{ color: "rgb(71, 71, 245)" }}>
-            Defensywa : {data.info.defense}
+            Defensywa {data.info.defense}
           </span>
         </div>
       </div>

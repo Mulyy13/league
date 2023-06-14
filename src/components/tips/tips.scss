@@ -1,3 +1,4 @@
+@import "../../theme/variables.scss";
 .tips {
   display: flex;
   justify-content: space-between;
@@ -7,22 +8,22 @@
   div {
     font-size: 30px;
     text-align: center;
-    border: 1.8px solid gray;
-    border-bottom: none;
     color: white;
     padding: 20px 0;
     text-transform: uppercase;
   }
   &__ally {
     color: white;
-    max-width: 50%;
+    width: 50%;
     list-style: none;
     margin-bottom: 10px;
     padding-left: 0px;
-    .tips-ally__title {
+    &-title {
       color: white;
       border-color: greenyellow;
       background-color: rgb(83, 131, 11);
+      border: 1.8px solid greenyellow;
+      font-family: $secondaryFont;
     }
 
     li {
@@ -34,25 +35,39 @@
     }
   }
   &__enemy {
-    max-width: 50%;
+    width: 50%;
     margin-bottom: 10px;
     padding-left: 0px;
     color: white;
     list-style: none;
-    .tips-enemy__title {
+    .tips__enemy-title {
       color: white;
       border-color: red;
       background-color: rgb(117, 13, 13);
+      border: 1.8px solid red;
+      font-family: $secondaryFont;
     }
     li {
-      padding: 20px 20px 20px 20px;
+      padding: 20px;
       font-size: 18px;
       border-left: 1.8px solid red;
       border-right: 1.8px solid red;
       background-color: rgba(255, 0, 0, 0.3);
-      text-align: left;
     }
   }
+}
+.tips__title {
+  height: 100px;
+  text-align: center;
+  font-size: $title-size;
+  font-family: $titlesFont;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 10px double $dark-gold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: $goldenrod;
 }
 @media (max-width: 1080px) {
   .tips {
@@ -131,12 +146,12 @@
     }
     &__ally {
       li {
-        font-size: 0.4em;
+        font-size: 0.7em;
       }
     }
     &__enemy {
       li {
-        font-size: 0.4em;
+        font-size: 0.7em;
       }
     }
   }

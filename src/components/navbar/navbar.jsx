@@ -11,6 +11,7 @@ import {
 } from "../../features/filterChampion";
 import { HandleInputValue } from "../../features/searchChampion";
 export const Navbar = () => {
+  // const [active, setActive] = useState(true);
   const dispatch = useDispatch();
   return (
     <>

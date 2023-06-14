@@ -4,20 +4,23 @@ import "./tips.scss";
 
 const Tips = ({ data }) => {
   return (
-    <div className="tips">
-      <ul className="tips__ally">
-        <div className="tips-ally__title">Granie</div>
-        {data.allytips.map((tip, index) => (
-          <li key={index}> {tip} </li>
-        ))}
-      </ul>
-      <ul className="tips__enemy">
-        <div className="tips-enemy__title">Kontrowanie</div>
-        {data.enemytips.map((tip, index) => (
-          <li key={index}> {tip} </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <h5 className="tips__title">Porady</h5>
+      <div className="tips">
+        <ul className="tips__ally">
+          <div className="tips__ally-title">Granie</div>
+          {data.allytips.map((tip, index) => (
+            <li key={index}> {tip} </li>
+          ))}
+        </ul>
+        <ul className="tips__enemy">
+          <div className="tips__enemy-title">Kontrowanie</div>
+          {data.enemytips.map((tip, index) => (
+            <li key={index}> {tip} </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 Tips.propTypes = {
